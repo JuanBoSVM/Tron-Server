@@ -17,7 +17,6 @@ int main()
 	);
 
 	window.setIcon({ icon.getSize().x, icon.getSize().y }, icon.getPixelsPtr());
-
 	sf::CircleShape shape(100.0f);
 	shape.setFillColor(sf::Color::Green);
 
@@ -31,6 +30,7 @@ int main()
 		while (lastEvent.has_value())
 		{
 			if (lastEvent->is<sf::Event::Closed>()) { window.close(); }
+			lastEvent = window.pollEvent();
 		}
 
 		window.clear();
